@@ -33,5 +33,42 @@ namespace CODESWEBAPI.Controllers
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetList), new { id = personel.ID }, personel);
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeletePersonel(int id)
+        {
+            var personel = _context.Personels.Find(id);
+            if (personel == null)
+            {
+                return NotFound("Personel bulunamadı.");
+            }
+            _context.Personels.Remove(personel);
+            _context.SaveChanges();
+            return NoContent();
+        }
+        [HttpPut("{id}")]
+        public IActionResult UpdatePersonel(int id, [FromBody] Personel personel)
+        {
+            if (personel == null || personel.ID != id)
+            {
+                return BadRequest("Personel bilgileri eksik veya ID uyuşmuyor.");
+            }
+            var existingPersonel = _context.Personels.Find(id);
+            if (existingPersonel == null)
+            {
+                return NotFound("Personel bulunamadı.");
+            }
+            existingPersonel.AD = personel.AD;
+            existingPersonel.SOYAD = personel.SOYAD;
+            existingPersonel.MAIL = personel.MAIL;
+            existingPersonel.TELEFON = personel.TELEFON;
+            existingPersonel.TC = personel.TC;
+            existingPersonel.IL = personel.TC;
+            existingPersonel.ILCE = personel.ILCE;
+            existingPersonel.ADRES = personel.ADRES;
+            existingPersonel.GOREV  = personel.GOREV;
+            _context.Personels.Update(existingPersonel);
+            _context.SaveChanges();
+            return NoContent();
+        }
     }
 }

@@ -155,6 +155,7 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // btnYeniKayıt
             // 
@@ -189,6 +190,7 @@
             this.simpleButton2.Size = new System.Drawing.Size(165, 36);
             this.simpleButton2.TabIndex = 54;
             this.simpleButton2.Text = "Güncelle(HTTP)";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // simpleButton3
             // 
@@ -200,6 +202,7 @@
             this.simpleButton3.Size = new System.Drawing.Size(165, 36);
             this.simpleButton3.TabIndex = 53;
             this.simpleButton3.Text = "Sil (HTTP)";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // btnGetir
             // 

@@ -223,6 +223,123 @@ namespace CODESFORM
         {
             await PersonelEkle();
         }
+        private async Task PersonelSil()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(Txtid.Text) || !int.TryParse(Txtid.Text, out int id))
+                {
+                    MessageBox.Show("Lütfen geçerli bir ID girin.");
+                    return;
+                }
+
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://localhost:44397/"); // Senin API portun
+                    var response = await client.DeleteAsync($"api/Personel/{id}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Personel başarıyla silindi.");
+                        await PersonelListesiGetir(); // Listeyi yenile
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        MessageBox.Show("Bu ID'ye ait personel bulunamadı.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Silme işlemi başarısız. Kod: {response.StatusCode}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Silme sırasında bir hata oluştu:\n" + ex.Message);
+            }
+        }
+
+        private async Task PersonelGuncelle ()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(Txtid.Text) || !int.TryParse(Txtid.Text, out int id))
+                {
+                    MessageBox.Show("Lütfen geçerli bir ID girin.");
+                    return;
+                }
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://localhost:44397/"); // Senin API portun
+                    var personel = new Personel
+                    {
+                        ID = id,
+                        AD = txtAd.Text,
+                        SOYAD = txtsoyad.Text,
+                        TC = mskTC.Text,
+                        TELEFON = mskTelefon1.Text,
+                        MAIL = txtMail.Text,
+                        ADRES = rchAdres.Text,
+                        IL = cmbil.Text,
+                        ILCE = cmbilce.Text,
+                        GOREV = txtGorev.Text
+                    };
+                    var jsonContent = JsonConvert.SerializeObject(personel);
+                    var content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+                    var response = await client.PutAsync($"api/Personel/{id}", content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Personel başarıyla güncellendi.");
+                        await PersonelListesiGetir(); // Listeyi yenile
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        MessageBox.Show("Bu ID'ye ait personel bulunamadı.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Güncelleme işlemi başarısız. Kod: {response.StatusCode}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Güncelleme sırasında bir hata oluştu:\n" + ex.Message);
+            }
+        }
+
+
+
+        private async void simpleButton3_Click(object sender, EventArgs e)
+        {
+            await PersonelSil();
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (gridView1.GetFocusedRow() is Personel personel)
+            {
+                Txtid.Text = personel.ID.ToString();
+                txtAd.Text = personel.AD;
+                txtsoyad.Text = personel.SOYAD;
+                mskTC.Text = personel.TC;
+                mskTelefon1.Text = personel.TELEFON;
+                txtMail.Text = personel.MAIL;
+                rchAdres.Text = personel.ADRES;
+                cmbil.Text = personel.IL;
+                cmbilce.Text = personel.ILCE;
+                txtGorev.Text = personel.GOREV;
+            }
+
+
+
+
+        }
+
+        private async void simpleButton2_Click(object sender, EventArgs e)
+        {
+            await PersonelGuncelle();
+        }
     }
 }
 
