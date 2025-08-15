@@ -22,5 +22,16 @@ namespace CODESWEBAPI.Controllers
             // Personel listesini döndürün
             return Ok(_context.Personels.ToList());
         }
+        [HttpPost]
+        public IActionResult AddPersonel([FromBody] Personel personel)
+        {
+            if (personel == null)
+            {
+                return BadRequest("Personel bilgileri eksik.");
+            }
+            _context.Personels.Add(personel);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetList), new { id = personel.ID }, personel);
+        }
     }
 }

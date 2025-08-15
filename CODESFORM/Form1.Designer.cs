@@ -33,6 +33,11 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnYeniKayıt = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGetir = new DevExpress.XtraEditors.SimpleButton();
             this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuncelle = new DevExpress.XtraEditors.SimpleButton();
             this.btnSil = new DevExpress.XtraEditors.SimpleButton();
@@ -57,10 +62,6 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGetir = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -93,6 +94,7 @@
             // 
             // splitContainerControl1.Panel2
             // 
+            this.splitContainerControl1.Panel2.Controls.Add(this.btnYeniKayıt);
             this.splitContainerControl1.Panel2.Controls.Add(this.simpleButton1);
             this.splitContainerControl1.Panel2.Controls.Add(this.simpleButton2);
             this.splitContainerControl1.Panel2.Controls.Add(this.simpleButton3);
@@ -122,8 +124,8 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.labelControl8);
             this.splitContainerControl1.Panel2.Controls.Add(this.labelControl9);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(825, 736);
-            this.splitContainerControl1.SplitterPosition = 518;
+            this.splitContainerControl1.Size = new System.Drawing.Size(871, 771);
+            this.splitContainerControl1.SplitterPosition = 597;
             this.splitContainerControl1.TabIndex = 0;
             // 
             // groupControl1
@@ -133,7 +135,7 @@
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(518, 736);
+            this.groupControl1.Size = new System.Drawing.Size(597, 771);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "groupControl1";
             // 
@@ -143,7 +145,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(514, 732);
+            this.gridControl1.Size = new System.Drawing.Size(593, 767);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -154,14 +156,71 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
+            // btnYeniKayıt
+            // 
+            this.btnYeniKayıt.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnYeniKayıt.Appearance.Options.UseFont = true;
+            this.btnYeniKayıt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnYeniKayıt.ImageOptions.Image")));
+            this.btnYeniKayıt.Location = new System.Drawing.Point(76, 722);
+            this.btnYeniKayıt.Name = "btnYeniKayıt";
+            this.btnYeniKayıt.Size = new System.Drawing.Size(165, 36);
+            this.btnYeniKayıt.TabIndex = 56;
+            this.btnYeniKayıt.Text = "Kaydet HTTP(Yeni)";
+            this.btnYeniKayıt.Click += new System.EventHandler(this.btnYeniKayıt_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(76, 680);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(165, 36);
+            this.simpleButton1.TabIndex = 55;
+            this.simpleButton1.Text = "Temizle (HTTP)";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(76, 596);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(165, 36);
+            this.simpleButton2.TabIndex = 54;
+            this.simpleButton2.Text = "Güncelle(HTTP)";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.simpleButton3.Appearance.Options.UseFont = true;
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.simpleButton3.Location = new System.Drawing.Point(76, 638);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(165, 36);
+            this.simpleButton3.TabIndex = 53;
+            this.simpleButton3.Text = "Sil (HTTP)";
+            // 
+            // btnGetir
+            // 
+            this.btnGetir.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGetir.Appearance.Options.UseFont = true;
+            this.btnGetir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGetir.ImageOptions.Image")));
+            this.btnGetir.Location = new System.Drawing.Point(76, 554);
+            this.btnGetir.Name = "btnGetir";
+            this.btnGetir.Size = new System.Drawing.Size(165, 36);
+            this.btnGetir.TabIndex = 52;
+            this.btnGetir.Text = "Getir(HTTP)";
+            this.btnGetir.Click += new System.EventHandler(this.btnGetir_Click);
+            // 
             // btnTemizle
             // 
             this.btnTemizle.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnTemizle.Appearance.Options.UseFont = true;
             this.btnTemizle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTemizle.ImageOptions.Image")));
-            this.btnTemizle.Location = new System.Drawing.Point(106, 480);
+            this.btnTemizle.Location = new System.Drawing.Point(76, 480);
             this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(143, 36);
+            this.btnTemizle.Size = new System.Drawing.Size(173, 36);
             this.btnTemizle.TabIndex = 51;
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
@@ -171,9 +230,9 @@
             this.btnGuncelle.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGuncelle.Appearance.Options.UseFont = true;
             this.btnGuncelle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGuncelle.ImageOptions.Image")));
-            this.btnGuncelle.Location = new System.Drawing.Point(106, 394);
+            this.btnGuncelle.Location = new System.Drawing.Point(76, 394);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(143, 36);
+            this.btnGuncelle.Size = new System.Drawing.Size(173, 36);
             this.btnGuncelle.TabIndex = 50;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
@@ -183,9 +242,9 @@
             this.btnSil.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSil.Appearance.Options.UseFont = true;
             this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
-            this.btnSil.Location = new System.Drawing.Point(106, 436);
+            this.btnSil.Location = new System.Drawing.Point(76, 436);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(143, 36);
+            this.btnSil.Size = new System.Drawing.Size(173, 36);
             this.btnSil.TabIndex = 49;
             this.btnSil.Text = "Sil";
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
@@ -195,9 +254,9 @@
             this.btnKaydet.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKaydet.Appearance.Options.UseFont = true;
             this.btnKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.ImageOptions.Image")));
-            this.btnKaydet.Location = new System.Drawing.Point(106, 352);
+            this.btnKaydet.Location = new System.Drawing.Point(76, 352);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(143, 36);
+            this.btnKaydet.Size = new System.Drawing.Size(173, 36);
             this.btnKaydet.TabIndex = 48;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
@@ -397,56 +456,11 @@
             this.labelControl9.TabIndex = 28;
             this.labelControl9.Text = "ID:";
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(100, 680);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(143, 36);
-            this.simpleButton1.TabIndex = 55;
-            this.simpleButton1.Text = "Temizle (HTTP)";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(100, 596);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(143, 36);
-            this.simpleButton2.TabIndex = 54;
-            this.simpleButton2.Text = "Güncelle(HTTP)";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(100, 638);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(143, 36);
-            this.simpleButton3.TabIndex = 53;
-            this.simpleButton3.Text = "Sil (HTTP)";
-            // 
-            // btnGetir
-            // 
-            this.btnGetir.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGetir.Appearance.Options.UseFont = true;
-            this.btnGetir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.btnGetir.Location = new System.Drawing.Point(98, 554);
-            this.btnGetir.Name = "btnGetir";
-            this.btnGetir.Size = new System.Drawing.Size(143, 36);
-            this.btnGetir.TabIndex = 52;
-            this.btnGetir.Text = "Getir(HTTP)";
-            this.btnGetir.Click += new System.EventHandler(this.btnGetir_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 736);
+            this.ClientSize = new System.Drawing.Size(871, 771);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -507,6 +521,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton btnGetir;
+        private DevExpress.XtraEditors.SimpleButton btnYeniKayıt;
     }
 }
 

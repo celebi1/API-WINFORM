@@ -169,32 +169,60 @@ namespace CODESFORM
             }
         }
 
+        private async Task BtnYeniKayıt_Click(object sender, EventArgs e)
+        {
+            await PersonelEkle();   
+        }
 
+           private async Task PersonelEkle()
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://localhost:44397/"); // HTTP portunu kullan
+                    client.Timeout = TimeSpan.FromSeconds(30);
+                    var personel = new Personel
+                    {
+                        AD = txtAd.Text,
+                        SOYAD = txtsoyad.Text,
+                        TC = mskTC.Text,
+                        TELEFON = mskTelefon1.Text,
+                        MAIL = txtMail.Text,
+                        ADRES = rchAdres.Text,
+                        IL = cmbil.Text,
+                        ILCE = cmbilce.Text,
+                        GOREV = txtGorev.Text
+                    };
+                    var jsonContent = JsonConvert.SerializeObject(personel);
+                    var content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync("api/Personel", content);
+                    response.EnsureSuccessStatusCode();
 
-        //private async Task PersonelListesiGetir()
-        //{
-        //    try
-        //    {
-        //        using (var client = new HttpClient())
-        //        {
-        //            client.BaseAddress = new Uri("http://localhost:44397/"); // API adresin
-        //            var response = await client.GetAsync("api/Personel");
-        //            response.EnsureSuccessStatusCode();
+                    if (response.IsSuccessStatusCode)
+                    {
 
-        //            var json = await response.Content.ReadAsStringAsync();
-        //            var personeller = JsonConvert.DeserializeObject<List<Personel>>(json);
+                        MessageBox.Show("Personel başarıyla eklendi.");
+                        await PersonelListesiGetir();
 
-        //            gridControl1.DataSource = personeller;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Hata ile karşılaşıldı:\n" + ex.ToString());
-        //    }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Personel eklenirken bir hata oluştu: " + response.ReasonPhrase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
-        //}
+                MessageBox.Show("Beklenmeyen hata:\n" + ex.ToString());
+            }
+        }
 
-
+        private async void btnYeniKayıt_Click(object sender, EventArgs e)
+        {
+            await PersonelEkle();
+        }
     }
 }
 
